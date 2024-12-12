@@ -46,6 +46,18 @@ const userSchema = new mongoose.Schema({
     required: [true, 'KYC ID is required']
   },
   realEstateInfo: String,
+  estateCost: {
+    type: Number,
+    required: [true, 'Estate cost is required']
+  },
+  percentageToTokenize: {
+    type: Number,
+    required: [true, 'Percentage to tokenize is required']
+  },
+  verifierEthAddress: {
+    type: String,
+    required: [true, 'Verifier Ethereum address is required']
+  },
   isVerified: {
     type: Boolean,
     default: false

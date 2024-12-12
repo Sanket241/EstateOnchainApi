@@ -40,7 +40,25 @@ exports.registerValidator = [
   check('kycId')
     .trim()
     .notEmpty()
-    .withMessage('KYC ID is required')
+    .withMessage('KYC ID is required'),
+  check('estateCost')
+    .isNumeric()
+    .withMessage('Estate cost must be a number')
+    .notEmpty()
+    .withMessage('Estate cost is required'),
+  check('percentageToTokenize')
+    .isNumeric()
+    .withMessage('Percentage to tokenize must be a number')
+    .notEmpty()
+    .withMessage('Percentage to tokenize is required')
+    .isFloat({ min: 0, max: 100 })
+    .withMessage('Percentage to tokenize must be between 0 and 100'),
+  check('verifierEthAddress')
+    .trim()
+    .notEmpty()
+    .withMessage('Verifier Ethereum address is required')
+    .matches(/^0x[a-fA-F0-9]{40}$/)
+    .withMessage('Invalid Ethereum address format'),
 ];
 
 exports.loginValidator = [
